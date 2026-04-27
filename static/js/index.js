@@ -51,6 +51,21 @@ $(document).ready(function() {
       var angle = parseFloat(root.getAttribute('data-angle') || '28');
       var labelA = root.getAttribute('data-label-a');
       var labelB = root.getAttribute('data-label-b');
+      var tileGridA = null;
+      var tileImgsA = [];
+
+      if (layerA) {
+        tileGridA = document.createElement('div');
+        tileGridA.className = 'rotate-tile-grid';
+        for (var i = 0; i < 4; i += 1) {
+          var tileImg = document.createElement('img');
+          tileImg.className = 'rotate-img-tile';
+          tileImg.alt = 'Image A';
+          tileGridA.appendChild(tileImg);
+          tileImgsA.push(tileImg);
+        }
+        layerA.appendChild(tileGridA);
+      }
 
       if (labelA && badgeLeft) {
         badgeLeft.textContent = labelA;
@@ -61,11 +76,15 @@ $(document).ready(function() {
 
       if (srcA) {
         imgA.src = srcA;
+        tileImgsA.forEach(function(tileImg) {
+          tileImg.src = srcA;
+        });
       }
       if (srcB) {
         imgB.src = srcB;
       }
 
+      imgA.classList.add('rotate-img-helper');
       imgA.style.transform = 'scale(' + scaleA + ')';
       imgB.style.transform = 'scale(' + scaleB + ')';
 

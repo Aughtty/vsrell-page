@@ -35,6 +35,15 @@ body {
   text-decoration: underline;
 }
 
+.publication-venue {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15;
+  color: #111;
+  margin-top: 10px;
+}
+
 .author-block {
   display: inline-block;
 }
@@ -99,6 +108,33 @@ body {
   margin-top: 8px;
   text-align: center;
   font-weight: 600;
+  color: #111;
+  font-size: 1rem;
+}
+
+.performance-caption {
+  font-weight: 600;
+  color: #111;
+  font-size: 1rem;
+}
+
+.performance-note {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #4a4a4a;
+}
+
+.architecture-overview-figure figcaption,
+.ll-sr-figure figcaption,
+.visual-comparision-figure figcaption {
+  text-align: center;
+  font-weight: 600;
+  color: #111;
+  font-size: 1rem;
 }
 
 .rotate-compare-grid {
@@ -136,6 +172,25 @@ body {
   height: 100%;
   object-fit: contain;
   transform-origin: center center;
+  user-select: none;
+}
+
+.rotate-img-helper {
+  display: none;
+}
+
+.rotate-tile-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.rotate-img-tile {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   user-select: none;
 }
 
@@ -345,12 +400,12 @@ body {
 }
 
 .performance-table {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Noto Sans", "Google Sans", sans-serif;
   border-collapse: collapse;
   width: 100%;
   text-align: center;
   font-size: 14px;
-  color: #000;
+  color: #111;
   border-top: 3px double #000;
   border-bottom: 3px double #000;
 }
@@ -361,8 +416,21 @@ body {
   white-space: nowrap;
 }
 
+.performance-table th {
+  font-weight: 600;
+}
+
+.performance-table td {
+  font-weight: 500;
+}
+
 .performance-table th:not(:first-child),
 .performance-table td:not(:first-child) {
+  border-left: 1px solid #000;
+}
+
+/* Rowspan header causes the first cell in row 2 to still need a left border. */
+.performance-table thead tr:nth-child(2) th:first-child {
   border-left: 1px solid #000;
 }
 
