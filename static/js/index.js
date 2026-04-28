@@ -341,4 +341,25 @@ $(document).ready(function() {
       setGuideVisible(true);
       updateStageSize();
     });
+
+    var compareVideos = document.querySelectorAll('.compare-video');
+    compareVideos.forEach(function(video) {
+      var caption = video.closest('.compare-video-card');
+      if (!caption) {
+        return;
+      }
+      var resolutionEl = caption.querySelector('.compare-video-resolution');
+      if (!resolutionEl) {
+        return;
+      }
+
+      function updateResolution() {
+        if (video.videoWidth && video.videoHeight) {
+          resolutionEl.textContent = 'Resolution: ' + video.videoWidth + 'x' + video.videoHeight;
+        }
+      }
+
+      video.addEventListener('loadedmetadata', updateResolution);
+      updateResolution();
+    });
 })
