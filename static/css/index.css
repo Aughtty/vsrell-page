@@ -86,6 +86,11 @@ body {
   z-index: 20;
 }
 
+.compare-video-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
 .compare-video-gt {
   grid-column: 3;
   grid-row: 1 / span 2;
@@ -502,6 +507,10 @@ body {
   }
 
   .compare-video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-video-grid-4 {
     grid-template-columns: 1fr;
   }
 
